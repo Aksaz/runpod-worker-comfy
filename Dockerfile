@@ -89,3 +89,5 @@ COPY --from=downloader /comfyui/models /comfyui/models
 
 # Start container
 CMD ["/start.sh"]
+
+#
