@@ -61,9 +61,7 @@ FROM base as downloader
 WORKDIR /comfyui
 
 # Create necessary directories
-RUN mkdir -p models/checkpoints models/vae
-
-
+RUN mkdir -p models/checkpoints models/vae models/controlnet models/ipadapter models/clip_vision
 
 # Download checkpoints/vae/LoRA to include in image based on model type
 RUN   wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors && \
@@ -75,6 +73,7 @@ RUN   wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.
 
 # Install ComfyUI custom nodes
 WORKDIR /comfyui/custom_nodes
+
 RUN git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git && \
   git clone https://github.com/cubiq/ComfyUI_essentials.git && \
   git clone https://github.com/Aksaz/seamless-clone-comfyui.git
