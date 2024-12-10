@@ -74,8 +74,7 @@ RUN   wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.
 # Install ComfyUI custom nodes
 WORKDIR /comfyui/custom_nodes
 
-RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git && \
-  git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git && \
+RUN git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git && \
   git clone https://github.com/cubiq/ComfyUI_essentials.git && \
   git clone https://github.com/Aksaz/seamless-clone-comfyui.git
 
