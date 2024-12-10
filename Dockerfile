@@ -28,6 +28,8 @@ RUN pip install comfy-cli
 
 # Install ComfyUI
 RUN /usr/bin/yes | comfy --workspace /comfyui install --cuda-version 12.1 --nvidia --version 0.3.7
+RUN comfy node install ComfyUI_essentials
+RUN comfy node install ComfyUI_IPAdapter_plus
 
 # Change working directory to ComfyUI
 WORKDIR /comfyui
@@ -74,9 +76,7 @@ RUN   wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.
 # Install ComfyUI custom nodes
 WORKDIR /comfyui/custom_nodes
 
-RUN git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git && \
-  git clone https://github.com/cubiq/ComfyUI_essentials.git && \
-  git clone https://github.com/Aksaz/seamless-clone-comfyui.git
+RUN git clone https://github.com/Aksaz/seamless-clone-comfyui.git
 
 WORKDIR /comfyui
 
