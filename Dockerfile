@@ -28,8 +28,10 @@ RUN pip install comfy-cli
 
 # Install ComfyUI
 RUN /usr/bin/yes | comfy --workspace /comfyui install --cuda-version 12.1 --nvidia --version 0.3.7
-RUN comfy node install ComfyUI_essentials
-RUN comfy node install ComfyUI_IPAdapter_plus
+
+# Install ComfyUI custom nodes
+RUN comfy node install ComfyUI_essentials && \
+  comfy node install ComfyUI_IPAdapter_plus
 
 # Change working directory to ComfyUI
 WORKDIR /comfyui
