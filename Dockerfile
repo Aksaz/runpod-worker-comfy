@@ -28,10 +28,15 @@ RUN pip install comfy-cli
 
 # Install ComfyUI
 RUN /usr/bin/yes | comfy --workspace /comfyui install --cuda-version 12.1 --nvidia --version 0.3.7
+RUN comfy set-default /comfyui
 
 # Install ComfyUI custom nodes
 RUN comfy node install ComfyUI_essentials && \
   comfy node install ComfyUI_IPAdapter_plus
+
+# Install ComfyUI custom nodes
+WORKDIR /comfyui/custom_nodes
+RUN git clone https://github.com/Aksaz/seamless-clone-comfyui.git
 
 # Change working directory to ComfyUI
 WORKDIR /comfyui
@@ -73,12 +78,6 @@ RUN   wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.
   wget -O models/controlnet/diffusers_xl_canny_full.safetensors https://huggingface.co/lllyasviel/sd_control_collection/resolve/d1b278d0d1103a3a7c4f7c2c327d236b082a75b1/diffusers_xl_canny_full.safetensors && \
   wget -O models/ipadapter/ip-adapter_sdxl_vit-h.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors && \
   wget -O models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors
-
-
-# Install ComfyUI custom nodes
-WORKDIR /comfyui/custom_nodes
-
-RUN git clone https://github.com/Aksaz/seamless-clone-comfyui.git
 
 WORKDIR /comfyui
 
