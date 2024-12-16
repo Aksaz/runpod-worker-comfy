@@ -232,17 +232,19 @@ def process_output_images(outputs, job_id):
     # The path where ComfyUI stores the generated images
     COMFY_OUTPUT_PATH = os.environ.get("COMFY_OUTPUT_PATH", "/comfyui/output")
 
-    output_images = {}
+    output_image = ""
 
     for node_id, node_output in outputs.items():
         if "images" in node_output:
+            print("runpod-worker-comfy - Node Output Images: ", node_output["images"])
             for image in node_output["images"]:
-                output_images = os.path.join(image["subfolder"], image["filename"])
+                if image["filename"].startswith("result_"):
+                    output_image = os.path.join(image["subfolder"], image["filename"])
 
     print(f"runpod-worker-comfy - image generation is done")
 
     # expected image output folder
-    local_image_path = f"{COMFY_OUTPUT_PATH}/{output_images}"
+    local_image_path = f"{COMFY_OUTPUT_PATH}/{output_image}"
 
     print(f"runpod-worker-comfy - {local_image_path}")
 
