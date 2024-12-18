@@ -35,10 +35,6 @@ RUN comfy node install ComfyUI_essentials && \
   comfy node install ComfyUI_IPAdapter_plus \
   comfy node registry-install comfyui-seamless-clone
 
-# Install ComfyUI custom nodes
-WORKDIR /comfyui/custom_nodes
-RUN git clone https://github.com/Aksaz/seamless-clone-comfyui.git
-
 # Change working directory to ComfyUI
 WORKDIR /comfyui
 

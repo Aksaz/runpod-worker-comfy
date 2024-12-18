@@ -22,7 +22,7 @@
             },
             "7": {
                 "inputs": {
-                    "text": "a chair in a room on the floor, against a white wall with shadows",
+                    "text": "a chair in a room on the floor, against a white wall with shadows, <lora:add-detail-xl:1>",
                     "clip": ["1", 1]
                 },
                 "class_type": "CLIPTextEncode",
@@ -42,10 +42,10 @@
             },
             "9": {
                 "inputs": {
-                    "seed": 292390356679716,
-                    "steps": 25,
+                    "seed": 52774215269089,
+                    "steps": 15,
                     "cfg": 7.5,
-                    "sampler_name": "euler",
+                    "sampler_name": "dpmpp_2s_ancestral",
                     "scheduler": "karras",
                     "denoise": 1,
                     "model": ["59", 0],
@@ -66,16 +66,6 @@
                 "class_type": "VAEDecode",
                 "_meta": {
                     "title": "VAE Decode"
-                }
-            },
-            "12": {
-                "inputs": {
-                    "filename_prefix": "result_",
-                    "images": ["11", 0]
-                },
-                "class_type": "SaveImage",
-                "_meta": {
-                    "title": "Save Image"
                 }
             },
             "13": {
@@ -129,8 +119,8 @@
             },
             "37": {
                 "inputs": {
-                    "width": 1024,
-                    "height": 1024,
+                    "width": 768,
+                    "height": 768,
                     "interpolation": "nearest",
                     "method": "stretch",
                     "condition": "always",
@@ -153,8 +143,8 @@
             },
             "47": {
                 "inputs": {
-                    "width": 1024,
-                    "height": 1024,
+                    "width": 768,
+                    "height": 768,
                     "interpolation": "nearest",
                     "method": "stretch",
                     "condition": "always",
@@ -321,6 +311,39 @@
                 "class_type": "IPAdapterCombineEmbeds",
                 "_meta": {
                     "title": "IPAdapter Combine Embeds"
+                }
+            },
+            "135": {
+                "inputs": {
+                    "blend_mode": "NORMAL_CLONE",
+                    "center_x": 398,
+                    "center_y": 485,
+                    "source_image": ["47", 0],
+                    "destination_image": ["11", 0],
+                    "mask_image": ["119", 7]
+                },
+                "class_type": "Seamless Cloning",
+                "_meta": {
+                    "title": "Seamless Cloning"
+                }
+            },
+            "137": {
+                "inputs": {
+                    "filename_prefix": "result_",
+                    "images": ["135", 0]
+                },
+                "class_type": "SaveImage",
+                "_meta": {
+                    "title": "Save Image"
+                }
+            },
+            "138": {
+                "inputs": {
+                    "images": ["11", 0]
+                },
+                "class_type": "PreviewImage",
+                "_meta": {
+                    "title": "Preview Image"
                 }
             }
         },
