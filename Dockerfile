@@ -32,7 +32,8 @@ RUN comfy set-default /comfyui
 
 # Install ComfyUI custom nodes
 RUN comfy node install ComfyUI_essentials && \
-  comfy node install ComfyUI_IPAdapter_plus
+  comfy node install ComfyUI_IPAdapter_plus \
+  comfy node registry-install comfyui-seamless-clone
 
 # Install ComfyUI custom nodes
 WORKDIR /comfyui/custom_nodes

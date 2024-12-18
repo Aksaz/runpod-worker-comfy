@@ -22,7 +22,7 @@
             },
             "7": {
                 "inputs": {
-                    "text": "a chair in a room on the floor, against a white wall with shadows, <lora:add-detail-xl:1>",
+                    "text": "a chair in a room on the floor, against a white wall with shadows",
                     "clip": ["1", 1]
                 },
                 "class_type": "CLIPTextEncode",
@@ -42,8 +42,8 @@
             },
             "9": {
                 "inputs": {
-                    "seed": 604833814624781,
-                    "steps": 15,
+                    "seed": 292390356679716,
+                    "steps": 25,
                     "cfg": 7.5,
                     "sampler_name": "euler",
                     "scheduler": "karras",
@@ -70,7 +70,7 @@
             },
             "12": {
                 "inputs": {
-                    "filename_prefix": "test",
+                    "filename_prefix": "result_",
                     "images": ["11", 0]
                 },
                 "class_type": "SaveImage",
@@ -129,8 +129,8 @@
             },
             "37": {
                 "inputs": {
-                    "width": 512,
-                    "height": 512,
+                    "width": 1024,
+                    "height": 1024,
                     "interpolation": "nearest",
                     "method": "stretch",
                     "condition": "always",
@@ -153,8 +153,8 @@
             },
             "47": {
                 "inputs": {
-                    "width": 512,
-                    "height": 512,
+                    "width": 1024,
+                    "height": 1024,
                     "interpolation": "nearest",
                     "method": "stretch",
                     "condition": "always",
@@ -187,7 +187,7 @@
             "59": {
                 "inputs": {
                     "weight": 1,
-                    "weight_type": "reverse in-out",
+                    "weight_type": "linear",
                     "start_at": 0,
                     "end_at": 1,
                     "embeds_scaling": "V only",

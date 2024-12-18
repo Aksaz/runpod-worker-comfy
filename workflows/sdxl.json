@@ -53,7 +53,7 @@
             },
             "9": {
                 "inputs": {
-                    "filename_prefix": "test",
+                    "filename_prefix": "result_",
                     "images": ["8", 0]
                 },
                 "class_type": "SaveImage"
